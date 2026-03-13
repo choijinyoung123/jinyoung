@@ -1,0 +1,514 @@
+@charset "utf-8";
+
+/* 폰트 */
+@font-face {
+  font-family: "ori";
+  src: url("../fonts/Demo_Fonts/Fontspring-DEMO-organetto-ultrabold.otf");
+}
+
+@font-face {
+  font-family: "shine";
+  src: url("../fonts/Shine/ShineProBold.otf");
+}
+
+@font-face {
+  font-family: "isidora";
+  src: url("../fonts/isidora/isidora-regular.otf");
+}
+
+@font-face {
+  font-family: "kinetaka";
+  src: url("../fonts/isidora/isidora-regular.otf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor:
+    url("../images/sp.png") 2 2,
+    auto;
+}
+*:active {
+  cursor:
+    url("../images/sp2.png") 2 2,
+    auto;
+}
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+body {
+  background-color: black;
+  color: #fff;
+}
+.container {
+  width: 50%;
+  margin: 0 auto;
+  padding: 0 20px 0;
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  height: 100px;
+  align-items: center;
+}
+header .logo {
+  width: 200px;
+}
+header .logo strong {
+  font-family: "ori";
+  font-size: 3rem;
+  display: block;
+  letter-spacing: 50px;
+}
+header .logo .choijinyoung {
+  display: block;
+  font-size: 0.5rem;
+  font-family: "shine";
+  font-weight: 100;
+  letter-spacing: 10px;
+  padding-left: 20px;
+}
+header ul {
+    display: flex;
+    margin-left: auto; 
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+header ul li {
+    width: auto; 
+    margin-left: 60px; 
+    font-family: "isidora";
+    font-size: 1.2rem;
+    cursor: pointer;
+    white-space: nowrap;
+}
+header ul li:hover {
+  opacity: 0.5;
+}
+header .container ul li.on {
+  color: lightgray;
+}
+h2 {
+  width: 5%;
+  margin-top: 10%;
+  font-family: "ori";
+  text-align: center;
+}
+section {
+    width: 100%;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+
+.videobox {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.videobox video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 또는 contain */
+    display: block;
+}
+.section1 {
+  width: 80%;
+  height: 100%;
+  margin: 2rem auto;
+  padding: 7rem;
+  position: relative;
+}
+.section1 .project .swiper-wrapper {
+  width: 70%;
+}
+.section1 .project .swiper-wrapper .swiper-slide {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid white;
+  position: relative;
+  align-items: center;
+  border-radius: 30px;
+  margin: 0 auto;
+  padding: 5px;
+  z-index: 99999;
+}
+.project .swiper-wrapper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(0.9);
+  transition: all 0.3s;
+  border-radius: 20px;
+}
+.section1 .swiper-wrapper .swiper-slide:hover img {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+h2 {
+  font-family: "ori";
+  font-size: 3rem;
+  padding: 2rem 0;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.project {
+  width: 100%;
+  margin-top: 5%;
+  height: 500px;
+  line-height: 400px;
+  text-align: center;
+}
+
+
+.popupbox {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: 9999;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+.popup {
+  width: 100%;
+  padding: 5rem 0;
+  text-align: center;
+  position: fixed;
+  background-color: black;
+  box-shadow: 1px 1px 10px 10px #eee;
+  top: 0%;
+  left: 0%;
+  opacity: 98%;
+  height: 100vh;
+  z-index: 9;
+}
+.popupbox .popup img {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  z-index: 9;
+}
+.popup .exit {
+  border: 1px solid #fff;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  cursor: pointer;
+  z-index: 9;
+}
+.popupbox .exit h1 {
+  text-align: center;
+  font-size: 2rem;
+}
+.ppp {
+  height: auto;
+}
+.toolbox {
+  width: 90%;
+  margin: 0 auto;
+  border: 3px solid #eee;
+  border-radius: 45px;
+  background-color: #eee;
+  padding: 3rem;
+  display: flex;
+  gap: 100px;
+}
+.toolbox .button > li {
+  font-size: 2rem;
+  font-family: "ori";
+  color: #000;
+  width: 300px;
+  cursor: pointer;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 1rem 0;
+}
+.toolbox .button img {
+  width: 60%;
+  height: 60%;
+}
+.toolbox .button > li ul {
+  display: none;
+  margin: 20% auto;
+}
+.toolbox .button > li li {
+  font-size: 1rem;
+  color: #555;
+  margin: 30px 0;
+}
+.tabitem {
+  width: 100%;
+}
+.tabitem img {
+  width: 100%;
+  height: 80%;
+  margin-top: 50px;
+  display: none;
+}
+.ab1 {
+  margin-top: 1%;
+  border: 1px solid #eee;
+  position: relative;
+  background-color: #eee;
+  color: #000;
+}
+.w0 {
+  display: flex;
+  height: 600px;
+  color: #000;
+}
+.w1 {
+  position: absolute;
+  margin: 0 auto;
+  padding: 5px;
+  top: 20%;
+  left: 10%;
+}
+.w1 li {
+  font-family: "ori";
+  font-size: 3rem;
+}
+.w12 li {
+  font-family: "ori";
+  font-size: 3rem;
+}
+.w12 {
+  padding: 10px;
+  margin-top: 0%;
+}
+.w3 {
+  width: 50%;
+  height: 1000px;
+  position: absolute;
+  top: 20%;
+  right: -5%;
+}
+.imgae {
+  margin-top: 10%;
+  width: 200px;
+  height: 200px;
+}
+h3 {
+  font-family: "ori";
+  font-size: 3rem;
+}
+h3 span {
+  font-family: "kinetika";
+  font-size: 1.5rem;
+}
+h4 {
+  text-align: center;
+  font-family: "ori";
+  font-size: 3rem;
+  padding: 5px;
+}
+.w3 li {
+  margin: 5px auto;
+  text-align: center;
+}
+.interview {
+  margin-top: 10% auto;
+  padding: 0% auto;
+  width: 100%;
+  height: 50%;
+  
+}
+
+.sns {
+  position: relative;
+  min-height: 100vh;
+  padding: 6rem 1.5rem 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.sns .lastvideobox {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.sns video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2;
+  display: block;
+}
+
+.sns .section1 {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  z-index: 2;
+  transform: none;
+  top: auto;
+  left: auto;
+}
+.snsbox {
+  margin: 10% auto;
+  z-index: 9;
+}
+footer {
+  text-align: center;
+}
+h5 {
+  text-align: center;
+  font-family: "kinetika";
+  font-size: 2rem;
+  cursor: pointer;
+}
+.videoback{
+    display:flex;
+    margin-top: 60px;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+.videoback h5 {
+  display: flex;
+  width: 100%;
+  margin: 3% auto;
+  justify-content: center;
+  align-items: center;
+  padding: 20%;
+}
+.snsimagebox{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    margin-top: 40px;
+}
+.snsimagebox a img {
+  cursor: pointer;
+  padding-top: 30%;
+  width: 100%;
+  object-fit: cover;
+}
+.point {
+  color: #1ed760;
+}
+.snsupbox {
+    width: 100%;
+    z-index: 10;
+    position: relative;
+}
+.snsupbox h2 {
+    margin: 0; 
+    padding-top: 3rem;
+    text-align: center;
+    font-size: 3rem;
+    position: absolute;
+    transform: translateY(-10rem);
+}
+footer {
+  margin: 5% auto;
+  padding-top: 10%;
+}
+header.sticky-right {
+  position: fixed;
+  top: 0;
+  right: -17.5rem;
+  width: 18rem; 
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  transition: right 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  border-left: 2px solid #1ed760;
+}
+
+
+header.sticky-right:hover {
+  right: 0;
+}
+
+
+header.sticky-right::before {
+  content: '◀';
+  position: absolute;
+  left: -1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #1ed760;
+  font-size: 1.2rem;
+  animation: bounceLeft 1s infinite;
+  cursor: pointer;
+  z-index: 1001;
+  visibility: visible; 
+}
+
+
+header.sticky-right:hover::before {
+  opacity: 0;
+  transition: 0.3s;
+}
+
+
+@keyframes bounceLeft {
+  0%, 100% { left: -1.5rem; }
+  50% { left: -2.2rem; }
+}
+
+header.sticky-right .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 1rem 0;
+  transform:  translateY(-100px);
+  overflow-x: hidden;
+}
+
+header.sticky-right ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+header.sticky-right ul li {
+  width: 100%;
+  padding: 3rem 0;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+.videoback p{
+    font-size:20px;
+    font-weight:600;
+    color:#fff;
+    margin:5px 0;
+    text-align: center;
+}

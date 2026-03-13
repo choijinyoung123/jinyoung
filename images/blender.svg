@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Blender</title>
+  <desc id="desc">Blender symbol on a transparent background.</desc>
+  <path d="M162 150h132l-71-60c-12-10-14-28-4-40 10-12 28-14 40-4l164 136c13 10 13 30 0 40L259 358c-12 10-30 8-40-4-10-12-8-30 4-40l71-60H162c-23 0-42-19-42-42s19-42 42-42z" fill="#e07b00"/>
+  <circle cx="330" cy="256" r="72" fill="#224f87"/>
+  <circle cx="330" cy="256" r="104" fill="none" stroke="#e07b00" stroke-width="32"/>
+</svg>

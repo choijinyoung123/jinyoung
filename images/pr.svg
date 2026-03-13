@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Premiere Pro</title>
+  <desc id="desc">Premiere Pro badge matching the reference icon style.</desc>
+  <rect x="16" y="16" width="480" height="480" rx="86" fill="#0a0a7a"/>
+  <rect x="16" y="16" width="480" height="480" rx="86" fill="none" stroke="#7d7dff" stroke-width="10"/>
+  <text x="112" y="326" fill="#a8a2ff" font-family="Arial, Helvetica, sans-serif" font-size="188" font-weight="700">Pr</text>
+</svg>
