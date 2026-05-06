@@ -132,7 +132,7 @@ section {
   position: relative;
 }
 .section1 .project .swiper-wrapper {
-  width: 70%;
+  width: 100%;
 }
 .section1 .project .swiper-wrapper .swiper-slide {
   display: flex;
@@ -142,21 +142,27 @@ section {
   align-items: center;
   border-radius: 30px;
   margin: 0 auto;
-  padding: 5px;
+  padding: 0;
   z-index: 99999;
+  overflow: hidden;
+  background-color: #000;
 }
 .project .swiper-wrapper .swiper-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transform: scale(0.9);
+  transform: scale(1.04);
   transition: all 0.3s;
-  border-radius: 20px;
+  border-radius: 0;
+  display: block;
 }
 .section1 .swiper-wrapper .swiper-slide:hover img {
-  transform: scale(1.05);
+  transform: scale(1.1);
   cursor: pointer;
+}
+.section1 .swiper-wrapper .swiper-slide.is-active img {
+  transform: scale(1.16);
 }
 h2 {
   font-family: "ori";
@@ -172,7 +178,7 @@ h2 {
   width: 100%;
   margin-top: 5%;
   height: 500px;
-  line-height: 400px;
+  line-height: normal;
   text-align: center;
 }
 
@@ -189,7 +195,7 @@ h2 {
 }
 .popup {
   width: 100%;
-  padding: 5rem 0;
+  padding: 5rem 2rem;
   text-align: center;
   position: fixed;
   background-color: black;
@@ -200,11 +206,14 @@ h2 {
   height: 100vh;
   z-index: 9;
 }
-.popupbox .popup img {
-  width: 90%;
-  height: 100%;
+.popupbox .popup iframe {
+  width: min(92vw, 1920px);
+  height: auto;
+  aspect-ratio: 16 / 9;
+  max-height: calc(100vh - 10rem);
   margin: 0 auto;
   z-index: 9;
+  display: block;
 }
 .popup .exit {
   border: 1px solid #fff;
@@ -222,6 +231,13 @@ h2 {
 }
 .ppp {
   height: auto;
+}
+.ppp .section1 {
+  padding-top: 3rem;
+}
+.ppp h2 {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 .toolbox {
   width: 90%;
@@ -264,17 +280,67 @@ h2 {
   height: 80%;
   margin-top: 50px;
   display: none;
+  object-fit: cover;
+}
+.tabitem img.tabitem-shorts {
+  width: auto;
+  height: 80%;
+  max-height: 560px;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  margin: 30px auto 0;
+  display: none;
+  border-radius: 12px;
 }
 .ab1 {
   margin-top: 1%;
-  border: 1px solid #eee;
   position: relative;
-  background-color: #eee;
   color: #000;
+  display: grid;
+  perspective: 1600px;
+  cursor: pointer;
+}
+.about-card-front,
+.about-card-back {
+  grid-area: 1 / 1;
+  min-height: 840px;
+  border: 1px solid #eee;
+  background-color: #eee;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.75s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.about-card-front {
+  position: relative;
+}
+.about-card-back {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4rem;
+  background-color: #111;
+  color: #eee;
+  text-align: center;
+  transform: rotateY(180deg);
+}
+.about-card-back p {
+  max-width: 760px;
+  font-family: "kinetika";
+  font-size: 2rem;
+  line-height: 1.45;
+}
+.ab1.is-flipped .about-card-front {
+  transform: rotateY(180deg);
+}
+.ab1.is-flipped .about-card-back {
+  transform: rotateY(360deg);
 }
 .w0 {
   display: flex;
-  height: 600px;
+  min-height: 680px;
+  height: auto;
   color: #000;
 }
 .w1 {
@@ -306,7 +372,9 @@ h2 {
 .imgae {
   margin-top: 10%;
   width: 200px;
-  height: 200px;
+  height: 260px;
+  object-fit: cover;
+  object-position: center top;
 }
 h3 {
   font-family: "ori";
@@ -332,6 +400,59 @@ h4 {
   width: 100%;
   height: 50%;
   
+}
+.shorts-section {
+  background-image: url('../images/daeum-banner.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.shorts-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.78);
+  z-index: 0;
+}
+
+.shorts-section .section1 {
+  padding-top: 2rem;
+  position: relative;
+  z-index: 1;
+}
+.shorts-list {
+  width: 100%;
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 300px));
+  justify-content: center;
+  gap: 2rem;
+}
+.shorts-item {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  padding: 0;
+  border: 2px solid #fff;
+  border-radius: 28px;
+  overflow: hidden;
+  background-color: #000;
+  cursor: pointer;
+}
+.shorts-item img,
+.shorts-item iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+.shorts-item img {
+  object-fit: cover;
+  transform: scale(1.04);
+  transition: transform 0.3s;
+}
+.shorts-item:hover img {
+  transform: scale(1.1);
 }
 
 .sns {
@@ -414,6 +535,47 @@ h5 {
   width: 100%;
   object-fit: cover;
 }
+/* ── Hero Section ── */
+.hero-section {
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.herobox {
+  text-align: center;
+  width: 90%;
+  max-width: 1100px;
+}
+
+.hero-svg {
+  width: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.hero-text-bg {
+  font-family: "Permanent Marker", cursive;
+  font-size: 175px;
+  fill: #0b2e12;
+}
+
+.hero-text-bright {
+  font-family: "Permanent Marker", cursive;
+  font-size: 175px;
+  fill: #1ed760;
+}
+
+.hero-sub-text {
+  font-family: "isidora", sans-serif;
+  font-size: 26px;
+  fill: rgba(255, 255, 255, 0.7);
+  letter-spacing: 7px;
+}
+
 .point {
   color: #1ed760;
 }
@@ -428,7 +590,7 @@ h5 {
     text-align: center;
     font-size: 3rem;
     position: absolute;
-    transform: translateY(-10rem);
+    transform: translateY(2rem);
 }
 footer {
   margin: 5% auto;
@@ -438,7 +600,7 @@ header.sticky-right {
   position: fixed;
   top: 0;
   right: -17.5rem;
-  width: 18rem; 
+  width: 18rem;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.95);
   transition: right 0.5s cubic-bezier(0.25, 1, 0.5, 1);
@@ -453,7 +615,6 @@ header.sticky-right:hover {
   right: 0;
 }
 
-
 header.sticky-right::before {
   content: '◀';
   position: absolute;
@@ -462,22 +623,13 @@ header.sticky-right::before {
   transform: translateY(-50%);
   color: #1ed760;
   font-size: 1.2rem;
-  animation: bounceLeft 1s infinite;
   cursor: pointer;
   z-index: 1001;
-  visibility: visible; 
 }
-
 
 header.sticky-right:hover::before {
   opacity: 0;
-  transition: 0.3s;
-}
-
-
-@keyframes bounceLeft {
-  0%, 100% { left: -1.5rem; }
-  50% { left: -2.2rem; }
+  transition: opacity 0.3s;
 }
 
 header.sticky-right .container {
