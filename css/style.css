@@ -324,12 +324,37 @@ h2 {
   color: #eee;
   text-align: center;
   transform: rotateY(180deg);
+  position: relative;
+  overflow: hidden;
 }
 .about-card-back p {
   max-width: 760px;
   font-family: "kinetika";
   font-size: 2rem;
   line-height: 1.45;
+  position: relative;
+  z-index: 1;
+}
+.card-signature {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  object-fit: cover;
+  transform: translate(-50%, -50%) rotate(22deg) scale(1.6);
+  object-fit: contain;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 1;
+}
+.ab1.is-flipped .card-signature {
+  animation: sig-fadein 1.4s ease-out forwards;
+  animation-delay: 0.6s;
+}
+@keyframes sig-fadein {
+  from { opacity: 0; }
+  to   { opacity: 0.2; }
 }
 .ab1.is-flipped .about-card-front {
   transform: rotateY(180deg);
