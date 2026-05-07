@@ -48,8 +48,9 @@ $(function () {
     {
       title: "Wedding",
       url: "https://www.youtube.com/embed/QVI0CnB9imU?si=0vtciLCSZw-BVg2n",
-      thumb: "https://img.youtube.com/vi/QVI0CnB9imU/sddefault.jpg",
+      thumb: "images/wedding.jpg",
       thumbClass: "wedding-thumb",
+      start: 1,
     },
   ];
 
@@ -59,9 +60,10 @@ $(function () {
     return match ? match[1] : "";
   }
 
-  function getEmbedUrl(url) {
+  function getEmbedUrl(url, start) {
     const videoId = getYoutubeId(url);
-    const cleanParams = "autoplay=1&controls=0&disablekb=1&fs=0&iv_load_policy=3&modestbranding=1&playsinline=1&rel=0";
+    const startParam = start ? `&start=${start}` : "";
+    const cleanParams = `autoplay=1&controls=0&disablekb=1&fs=0&iv_load_policy=3&modestbranding=1&playsinline=1&rel=0${startParam}`;
     return videoId ? `https://www.youtube.com/embed/${videoId}?${cleanParams}` : "";
   }
 
@@ -88,7 +90,7 @@ $(function () {
   // ── 프로젝트 클릭 → 팝업 ──
   $(".project").on("click", ".swiper-slide", function () {
     const idx = $(this).data("project-index");
-    const embedUrl = getEmbedUrl(projects[idx].url);
+    const embedUrl = getEmbedUrl(projects[idx].url, projects[idx].start);
     if (!embedUrl) return;
     $(".project .swiper-slide").removeClass("is-active");
     $(this).addClass("is-active");
