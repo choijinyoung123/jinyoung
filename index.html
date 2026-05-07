@@ -56,9 +56,22 @@
         </div>
     </header>
     <main>
-        <section>
-            <div class="videobox">
-                <video src="video/motion.mp4" autoplay muted loop playsinline></video>
+        <section class="hero-graffiti">
+            <svg style="display:none" aria-hidden="true">
+                <defs>
+                    <filter id="paint-streak" x="-5%" y="-120%" width="110%" height="340%">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.012 0.22" numOctaves="3" seed="12" result="noise"/>
+                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="20" xChannelSelector="R" yChannelSelector="G"/>
+                    </filter>
+                </defs>
+            </svg>
+            <div class="graffiti-green-fill"></div>
+            <div class="graffiti-content">
+                <div class="graffiti-text-wrap">
+                    <span class="graffiti-portfolio">PORTFOLIO</span>
+                </div>
+                <div class="graffiti-streak"></div>
+                <p class="graffiti-badge">CJY <span>|</span> choijinyoung</p>
             </div>
         </section>
         <section>
@@ -129,8 +142,8 @@
                     <ul class="tabitem">
                         <li>
                             <img src="images/5.jpg" alt="타이포 영상 썸네일">
-                            <img src="https://img.youtube.com/vi/xP2z2YUAYmw/maxresdefault.jpg" alt="설화수 영상 썸네일">
-                            <img src="https://img.youtube.com/vi/GghL56BlnfU/maxresdefault.jpg" alt="캇예스 영상 썸네일" class="tabitem-shorts">
+                            <img src="https://img.youtube.com/vi/OXLQ7dEtEZ4/hqdefault.jpg" alt="설화수 영상 썸네일">
+                            <img src="https://img.youtube.com/vi/_EywHi01O3w/hqdefault.jpg" alt="앨리스 영상 썸네일">
                         </li>
                     </ul>
                 </div>
@@ -146,7 +159,7 @@
                                 <li>WHERE <span class="point">BRAND VALUES</span></li>
                                 <li>MEET <span class="point">CREATIVE MOTION</span></li>
                                 <li>
-                                    <img class="imgae" src="images/profile-photo.jpg" alt="프로필 사진">
+                                    <img class="imgae" src="images/s.png" alt="프로필 사진" data-real="images/profile-photo.jpg" data-placeholder="images/s.png">
                                 </li>
                                 <li>
                                     <div class="w12">
@@ -191,13 +204,16 @@
         </section>
         <section class="shorts-section">
             <div class="section1">
-                <h2>S<span class="point">H</span>ORTS</h2>
+                <h2>SHO<span class="point">R</span>TS</h2>
+                <a href="https://www.youtube.com/@%EB%8B%A4%EC%9D%8C%EC%A3%BC%EC%9D%B8" target="_blank" class="shorts-channel-link">
+                    <img class="shorts-channel-avatar" src="images/쇼츠프사.png" alt="다음주인 채널">
+                </a>
                 <div class="shorts-list"></div>
             </div>
         </section>
 
         <div class="snsupbox">
-            <h2>C<span class="point">O</span>NTACT</h2>
+            <h2>CONTAC<span class="point">T</span></h2>
         </div>
         <section class="sns">
             <span class="lastvideobox">

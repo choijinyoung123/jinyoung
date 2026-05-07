@@ -1,4 +1,32 @@
 $(function () {
+  // ── Graffiti Intro Loop ──
+  var graffitiTargets = [
+    '.graffiti-green-fill',
+    '.graffiti-text-wrap',
+    '.graffiti-portfolio',
+    '.graffiti-streak',
+    '.graffiti-badge',
+    '.graffiti-badge span'
+  ];
+
+  function replayGraffiti() {
+    graffitiTargets.forEach(function(sel) {
+      var el = document.querySelector(sel);
+      if (!el) return;
+      el.style.animation = 'none';
+      void el.offsetHeight;
+      el.style.animation = '';
+    });
+  }
+
+  if (document.querySelector('.hero-graffiti')) {
+    var LOOP_MS = 3800;
+    setTimeout(function loop() {
+      replayGraffiti();
+      setTimeout(loop, LOOP_MS);
+    }, LOOP_MS);
+  }
+
   const projects = [
     {
       title: "타이포",
@@ -7,15 +35,20 @@ $(function () {
     },
     {
       title: "설화수",
-      url: "https://www.youtube.com/embed/xP2z2YUAYmw?si=6e9u_2rjlppvXVZa",
+      url: "https://www.youtube.com/embed/OXLQ7dEtEZ4?si=FxEVm1t25xonDYSe",
     },
     {
       title: "공모전",
       url: "https://www.youtube.com/embed/4xZXZYNNzc8?si=2DLr8BXc9jpMOC7-",
     },
     {
-      title: "쇼츠",
-      url: "https://youtube.com/shorts/GghL56BlnfU?si=TfNzp532_QsWAr27",
+      title: "앨리스",
+      url: "https://www.youtube.com/embed/_EywHi01O3w",
+    },
+    {
+      title: "타이포",
+      url: "https://www.youtube.com/embed/S2JsTS0WkqY?si=Cvj-HQo7mk04UQ-D",
+      thumb: "images/5.jpg",
     },
   ];
 
@@ -156,6 +189,18 @@ $(function () {
     $(".tabitem img").eq(idx).fadeToggle(700);
   });
   $(".toolbox .button > li").eq(0).trigger("click");
+
+  // ── About 프로필 이미지 클릭 → 페이드 전환 ──
+  $(".imgae").on("click", function (e) {
+    e.stopPropagation();
+    var $img = $(this);
+    var real = $img.data("real");
+    var placeholder = $img.data("placeholder");
+    var nextSrc = $img.attr("src") === placeholder ? real : placeholder;
+    $img.animate({ opacity: 0 }, 220, function () {
+      $img.attr("src", nextSrc).animate({ opacity: 1 }, 320);
+    });
+  });
 
   // ── About 카드 뒤집기 ──
   $(".ab1").on("click", function () {

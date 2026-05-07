@@ -233,7 +233,7 @@ h2 {
   height: auto;
 }
 .ppp .section1 {
-  padding-top: 3rem;
+  padding-top: 0.5rem;
 }
 .ppp h2 {
   margin-bottom: 0;
@@ -446,6 +446,44 @@ h4 {
   position: relative;
   z-index: 1;
 }
+.shorts-channel-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  text-decoration: none;
+  color: #fff;
+  opacity: 0.82;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.shorts-channel-link:hover {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+.shorts-channel-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  flex-shrink: 0;
+}
+
+.shorts-channel-name {
+  font-family: 'isidora', sans-serif;
+  font-size: 0.88rem;
+  letter-spacing: 0.06em;
+}
+
+.shorts-channel-arrow {
+  font-size: 1.1rem;
+  opacity: 0.6;
+  line-height: 1;
+}
+
 .shorts-list {
   width: 100%;
   margin-top: 3rem;
@@ -483,6 +521,7 @@ h4 {
 .sns {
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   padding: 6rem 1.5rem 4rem;
   display: flex;
   justify-content: center;
@@ -560,6 +599,129 @@ h5 {
   width: 100%;
   object-fit: cover;
 }
+/* ── Hero Graffiti ── */
+.hero-graffiti {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.graffiti-content {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding: 0 1.5rem;
+}
+
+.graffiti-text-wrap {
+  overflow: visible;
+  animation: graffiti-slide-in 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes graffiti-slide-in {
+  from { opacity: 0; transform: translateX(-80px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.graffiti-portfolio {
+  display: block;
+  font-family: 'Permanent Marker', cursive;
+  font-size: clamp(3.2rem, 13vw, 11rem);
+  color: #1ed760;
+  line-height: 1.05;
+  text-shadow:
+    0 0 12px rgba(30, 215, 96, 1),
+    0 0 30px rgba(30, 215, 96, 0.75),
+    0 0 65px rgba(30, 215, 96, 0.45),
+    0 0 130px rgba(30, 215, 96, 0.2);
+  animation: text-to-dark 0.6s 2.5s ease forwards;
+}
+
+.graffiti-streak {
+  width: 66%;
+  height: 18px;
+  background: #1ed760;
+  margin: 1.4rem auto 2.8rem;
+  filter: url(#paint-streak);
+  transform-origin: left center;
+  transform: scaleX(0);
+  animation:
+    streak-grow 1s 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    streak-to-dark 0.6s 2.5s ease forwards;
+  box-shadow: 0 0 18px rgba(30, 215, 96, 0.55);
+  will-change: transform;
+}
+
+@keyframes streak-grow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.graffiti-badge {
+  font-family: 'isidora', sans-serif;
+  font-size: clamp(0.8rem, 1.8vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.38em;
+  animation:
+    badge-fade 0.9s 1.1s ease both,
+    badge-to-dark 0.6s 2.5s ease forwards;
+}
+
+.graffiti-badge span {
+  color: #1ed760;
+  margin: 0 0.55em;
+  animation: span-to-dark 0.6s 2.5s ease forwards;
+}
+
+@keyframes badge-fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── 배경 초록 채우기 (모션 완료 후) ── */
+.graffiti-green-fill {
+  position: absolute;
+  inset: 0;
+  background: #4cfa53;
+  transform-origin: left center;
+  transform: scaleX(0);
+  z-index: 0;
+  animation: green-wipe 0.9s 2.1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes green-wipe {
+  to { transform: scaleX(1); }
+}
+
+@keyframes text-to-dark {
+  to {
+    color: #111;
+    text-shadow:
+      0 0 1px rgba(0,0,0,0),
+      0 0 1px rgba(0,0,0,0),
+      0 0 1px rgba(0,0,0,0),
+      0 0 1px rgba(0,0,0,0);
+  }
+}
+
+@keyframes streak-to-dark {
+  to { background: rgba(0,0,0,0.18); box-shadow: none; }
+}
+
+@keyframes badge-to-dark {
+  to { color: rgba(0,0,0,0.62); }
+}
+
+@keyframes span-to-dark {
+  to { color: #111; }
+}
+
 /* ── Hero Section ── */
 .hero-section {
   width: 100%;
