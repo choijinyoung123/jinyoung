@@ -46,9 +46,10 @@ $(function () {
       url: "https://www.youtube.com/embed/_EywHi01O3w",
     },
     {
-      title: "타이포",
-      url: "https://www.youtube.com/embed/S2JsTS0WkqY?si=Cvj-HQo7mk04UQ-D",
-      thumb: "images/5.jpg",
+      title: "Wedding",
+      url: "https://www.youtube.com/embed/QVI0CnB9imU?si=0vtciLCSZw-BVg2n",
+      thumb: "https://img.youtube.com/vi/QVI0CnB9imU/sddefault.jpg",
+      thumbClass: "wedding-thumb",
     },
   ];
 
@@ -60,7 +61,8 @@ $(function () {
 
   function getEmbedUrl(url) {
     const videoId = getYoutubeId(url);
-    return videoId ? `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0` : "";
+    const cleanParams = "autoplay=1&controls=0&disablekb=1&fs=0&iv_load_policy=3&modestbranding=1&playsinline=1&rel=0";
+    return videoId ? `https://www.youtube.com/embed/${videoId}?${cleanParams}` : "";
   }
 
   function getThumbUrl(url) {
@@ -77,6 +79,7 @@ $(function () {
     const thumbUrl = project.thumb || getThumbUrl(project.url);
     const $slide = $('<div class="swiper-slide"></div>').attr("data-project-index", idx);
     const $img = $('<img src="" alt="">');
+    if (project.thumbClass) $img.addClass(project.thumbClass);
     if (thumbUrl) $img.attr({ src: thumbUrl, alt: `${project.title} 썸네일` });
     $slide.append($img);
     $wrapper.append($slide);
@@ -180,13 +183,61 @@ $(function () {
     });
   });
 
+  // ── YouTube IFrame API (Blender 탭 7~10초 루프) ──
+  var blenderPlayer = null;
+  var blenderLoopTimer = null;
+
+  function startBlenderLoop(player) {
+    if (blenderLoopTimer) clearInterval(blenderLoopTimer);
+    blenderLoopTimer = setInterval(function () {
+      try {
+        if (player.getCurrentTime() >= 10) player.seekTo(7, true);
+      } catch (e) {}
+    }, 150);
+  }
+
+  window.onYouTubeIframeAPIReady = function () {
+    blenderPlayer = new YT.Player('blender-yt-player', {
+      videoId: 'OXLQ7dEtEZ4',
+      playerVars: {
+        autoplay: 1,
+        controls: 0,
+        disablekb: 1,
+        fs: 0,
+        iv_load_policy: 3,
+        modestbranding: 1,
+        mute: 1,
+        playsinline: 1,
+        rel: 0,
+        start: 7
+      },
+      events: {
+        onReady: function (e) { startBlenderLoop(e.target); },
+        onStateChange: function (e) {
+          if (e.data === YT.PlayerState.PLAYING) startBlenderLoop(e.target);
+        }
+      }
+    });
+  };
+
+  var ytTag = document.createElement('script');
+  ytTag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(ytTag);
+
   // ── Tools 탭 ──
   $(".toolbox .button > li").click(function () {
     $(".button ul").slideUp();
     $(this).find("ul").slideToggle();
     let idx = $(this).index();
-    $(".tabitem img").hide();
-    $(".tabitem img").eq(idx).fadeToggle(700);
+    $(".tabitem .tab-media").hide();
+    $(".tabitem .tab-media").eq(idx).fadeToggle(700);
+
+    if (idx === 1 && blenderPlayer && blenderPlayer.seekTo) {
+      setTimeout(function () {
+        blenderPlayer.seekTo(7, true);
+        blenderPlayer.playVideo();
+      }, 100);
+    }
   });
   $(".toolbox .button > li").eq(0).trigger("click");
 
