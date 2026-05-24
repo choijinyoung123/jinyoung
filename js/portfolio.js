@@ -243,18 +243,6 @@ $(function () {
   });
   $(".toolbox .button > li").eq(0).trigger("click");
 
-  // ── About 프로필 이미지 클릭 → 페이드 전환 ──
-  $(".imgae").on("click", function (e) {
-    e.stopPropagation();
-    var $img = $(this);
-    var real = $img.data("real");
-    var placeholder = $img.data("placeholder");
-    var nextSrc = $img.attr("src") === placeholder ? real : placeholder;
-    $img.animate({ opacity: 0 }, 220, function () {
-      $img.attr("src", nextSrc).animate({ opacity: 1 }, 320);
-    });
-  });
-
   // ── About 카드 뒤집기 ──
   $(".ab1").on("click", function () {
     $(this).toggleClass("is-flipped");
