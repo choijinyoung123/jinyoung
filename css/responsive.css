@@ -9,6 +9,11 @@
   }
   .project--featured { padding-top: 106px; }
   .project--reverse .project-copy, .project--reverse .video-frame { order: initial; }
+  .project--wedding { grid-template-columns: 1fr; }
+  .project--wedding .project-copy { padding-left: 0; }
+  .project--contest .project-copy { position: static; }
+  .project--contest .contest-reel, .project--contest .contest-full { order: initial; }
+  .contest-full { grid-template-columns: minmax(220px, .55fr) minmax(0, 1.45fr); }
   .project-heading { grid-template-columns: 1fr; margin-bottom: 28px; }
   .project-heading .project-index { grid-column: auto; }
   .project-heading .project-lead { margin-top: -8px; }
@@ -66,6 +71,12 @@
   .project-lead { margin-bottom: 28px; font-size: 16px; line-height: 1.7; }
   .project-heading { gap: 18px; margin-bottom: 22px; }
   .video-frame { width: calc(100% + 32px); margin-left: -16px; border-inline: 0; }
+  .contest-reel { width: calc(100% + 32px); margin-left: -16px; }
+  .contest-reel-head, .contest-progress { margin-inline: 16px; }
+  .contest-reel-media { width: 100%; margin-left: 0; }
+  .contribution-list { margin-top: 30px; }
+  .contest-full { grid-template-columns: 1fr; gap: 28px; margin-top: 28px; padding-top: 44px; }
+  .contest-full .video-frame { order: 2; }
   .compare-block { grid-template-columns: 1fr; gap: 26px; }
   .compare-media { width: calc(100% + 32px); margin-left: -16px; border-inline: 0; }
   .project-info { padding-top: 24px; }

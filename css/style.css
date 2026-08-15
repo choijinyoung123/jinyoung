@@ -228,6 +228,79 @@ main { overflow: hidden; }
 .project-copy { align-self: center; }
 .project-meta--stacked div { grid-template-columns: 62px 1fr; }
 
+.project--wedding {
+  grid-template-columns: minmax(0, 7fr) minmax(300px, 3fr);
+  gap: clamp(48px, 5vw, 86px);
+}
+.project--wedding .project-copy { padding-left: clamp(12px, 1.5vw, 28px); }
+
+.project--contest {
+  grid-template-columns: minmax(0, 1.08fr) minmax(340px, .92fr);
+  align-items: start;
+}
+.project--contest .project-copy { position: sticky; top: 108px; }
+.contest-reel { min-width: 0; order: 1; }
+.contest-reel-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 2px 11px;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .14em;
+}
+.contest-reel-head span:last-child { color: var(--muted); }
+.contest-reel-media { overflow: hidden; }
+.contest-reel-media iframe { pointer-events: none; }
+.contest-progress { height: 2px; margin-top: 12px; overflow: hidden; background: var(--line); }
+.contest-progress span { display: block; width: 0; height: 100%; background: var(--accent); transition: width .18s linear; }
+.contribution-panel { margin-top: 30px; }
+.contribution-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 14px;
+}
+.contribution-heading > span { color: var(--muted); font-size: 9px; font-weight: 600; letter-spacing: .14em; }
+.contribution-heading h3 { margin: 0; font-size: 15px; font-weight: 500; letter-spacing: -.02em; }
+.contribution-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.contribution-list li { border-bottom: 1px solid var(--line); }
+.contribution-list button {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 15px 0;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  transition: color .2s ease, padding-left .2s ease;
+}
+.contribution-list button:hover, .contribution-list button:focus-visible, .contribution-list li.is-active button { color: var(--text); padding-left: 7px; }
+.contribution-number { color: var(--accent); font-size: 10px; font-weight: 600; letter-spacing: .1em; }
+.contribution-list button > span:last-child { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; }
+.contribution-list strong { font-size: 13px; font-weight: 500; }
+.contribution-list small { color: inherit; font-size: 9px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.contest-full {
+  grid-column: 1 / -1;
+  order: 3;
+  display: grid;
+  grid-template-columns: minmax(240px, .55fr) minmax(0, 1.45fr);
+  gap: clamp(36px, 6vw, 92px);
+  align-items: end;
+  margin-top: 46px;
+  padding-top: 62px;
+  border-top: 1px solid var(--line);
+}
+.contest-full-copy h3 { margin: 0 0 22px; font-size: clamp(28px, 3vw, 48px); font-weight: 500; letter-spacing: -.045em; line-height: 1.14; }
+.contest-full-copy > p:not(.project-index) { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+.contest-full-copy a { color: var(--accent); font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+
 .capabilities, .shorts, .about, .contact {
   width: var(--page);
   margin: 0 auto;

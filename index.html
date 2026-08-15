@@ -91,25 +91,80 @@
       </div>
     </section>
 
-    <section class="project project--reverse" aria-labelledby="project-03-title">
+    <section class="project project--reverse project--contest" id="contest" aria-labelledby="project-03-title">
       <div class="project-copy reveal">
         <p class="project-index">03 / 05 · CONTEST FILM</p>
         <h2 id="project-03-title">공모전 모션그래픽</h2>
-        <p class="project-lead">정보가 짧은 시간 안에 이해되도록 상황을 장면 단위로 나누고, 명확한 화면 전환과 캐릭터 움직임으로 전달력을 높였습니다.</p>
+        <p class="project-lead">전체 영상 중 제가 직접 참여한 장면만 먼저 모아 보여드립니다. 모션과 화면 디자인을 통해 정보가 짧은 시간 안에 명확하게 전달되도록 구성했습니다.</p>
         <dl class="project-meta project-meta--stacked">
-          <div><dt>Role</dt><dd>Planning · Editing · Motion Design</dd></div>
+          <div><dt>Role</dt><dd>Motion Design · Scene Design</dd></div>
           <div><dt>Tools</dt><dd>After Effects · Premiere Pro</dd></div>
-          <div><dt>Focus</dt><dd>Story Flow · Visual Clarity</dd></div>
+          <div><dt>Focus</dt><dd>Visual Clarity · Character Motion</dd></div>
         </dl>
       </div>
-      <div class="video-frame reveal">
+      <div class="contest-reel reveal" data-contest-reel>
+        <div class="contest-reel-head">
+          <span>MY CONTRIBUTION · AUTO REEL</span>
+          <span>MUTED PREVIEW</span>
+        </div>
+        <div class="video-frame contest-reel-media">
+          <iframe
+            id="contest-highlight-player"
+            src="https://www.youtube.com/embed/4xZXZYNNzc8?enablejsapi=1&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1&amp;start=15"
+            title="공모전 기여 구간 자동 재생"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <div class="contest-progress" aria-hidden="true"><span></span></div>
+        <div class="contribution-panel">
+          <div class="contribution-heading">
+            <span>SELECTED SCENES</span>
+            <h3>기여한 부분</h3>
+          </div>
+          <ol class="contribution-list" aria-label="공모전 영상 기여 구간">
+            <li class="is-active">
+              <button type="button" data-contest-segment="0">
+                <span class="contribution-number">01</span>
+                <span><strong>00:15 — 00:41</strong><small>Motion Design</small></span>
+              </button>
+            </li>
+            <li>
+              <button type="button" data-contest-segment="1">
+                <span class="contribution-number">02</span>
+                <span><strong>01:05 — 01:13</strong><small>Motion Design</small></span>
+              </button>
+            </li>
+            <li>
+              <button type="button" data-contest-segment="2">
+                <span class="contribution-number">03</span>
+                <span><strong>01:14 — 01:28</strong><small>Scene Design</small></span>
+              </button>
+            </li>
+            <li>
+              <button type="button" data-contest-segment="3">
+                <span class="contribution-number">04</span>
+                <span><strong>02:00 — 02:16</strong><small>Motion Design</small></span>
+              </button>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="contest-full reveal">
+        <div class="contest-full-copy">
+          <p class="project-index">FULL FILM</p>
+          <h3>전체 흐름도 함께<br>확인해 보세요</h3>
+          <p>하이라이트에서 기여 장면을 확인한 뒤, 작품의 전체 맥락과 팀의 결과물을 볼 수 있습니다.</p>
+          <a href="https://www.youtube.com/watch?v=4xZXZYNNzc8" target="_blank" rel="noreferrer">YouTube에서 보기 ↗</a>
+        </div>
+        <div class="video-frame">
         <iframe
           loading="lazy"
           src="https://www.youtube.com/embed/4xZXZYNNzc8?controls=1&amp;playsinline=1&amp;rel=0"
-          title="공모전 모션그래픽 영상"
+          title="공모전 모션그래픽 전체 영상"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen></iframe>
+        </div>
       </div>
     </section>
 
@@ -144,7 +199,7 @@
       </div>
     </section>
 
-    <section class="project project--reverse" aria-labelledby="project-05-title">
+    <section class="project project--reverse project--wedding" aria-labelledby="project-05-title">
       <div class="project-copy reveal">
         <p class="project-index">05 / 05 · CUT EDITING</p>
         <h2 id="project-05-title">Wedding Film</h2>
@@ -158,7 +213,7 @@
       <div class="video-frame reveal">
         <iframe
           loading="lazy"
-          src="https://www.youtube.com/embed/QVI0CnB9imU?start=1&amp;controls=1&amp;playsinline=1&amp;rel=0"
+          src="https://www.youtube.com/embed/QVI0CnB9imU?start=1&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=QVI0CnB9imU&amp;controls=1&amp;playsinline=1&amp;rel=0"
           title="웨딩 필름 컷 편집"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin"

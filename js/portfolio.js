@@ -89,4 +89,81 @@
     });
     window.setInterval(align, 250);
   });
+
+  const contestReel = document.querySelector('[data-contest-reel]');
+  if (contestReel) {
+    const segments = [
+      { start: 15, end: 41, time: '00:15 — 00:41', role: 'Motion Design' },
+      { start: 65, end: 73, time: '01:05 — 01:13', role: 'Motion Design' },
+      { start: 74, end: 88, time: '01:14 — 01:28', role: 'Scene Design' },
+      { start: 120, end: 136, time: '02:00 — 02:16', role: 'Motion Design' }
+    ];
+    const buttons = [...document.querySelectorAll('[data-contest-segment]')];
+    const progress = contestReel.querySelector('.contest-progress span');
+    let player;
+    let activeIndex = 0;
+    let isVisible = false;
+    let timer;
+
+    const updateReel = (index) => {
+      const segment = segments[index];
+      buttons.forEach((button, buttonIndex) => button.closest('li')?.classList.toggle('is-active', buttonIndex === index));
+      if (progress) progress.style.width = '0%';
+    };
+
+    const playSegment = (index) => {
+      activeIndex = (index + segments.length) % segments.length;
+      updateReel(activeIndex);
+      if (!player?.seekTo) return;
+      player.seekTo(segments[activeIndex].start, true);
+      player.mute();
+      if (isVisible) player.playVideo();
+    };
+
+    const beginTracking = () => {
+      window.clearInterval(timer);
+      timer = window.setInterval(() => {
+        if (!player?.getCurrentTime) return;
+        const segment = segments[activeIndex];
+        const currentTime = player.getCurrentTime();
+        const percent = Math.max(0, Math.min(100, ((currentTime - segment.start) / (segment.end - segment.start)) * 100));
+        if (progress) progress.style.width = `${percent}%`;
+        if (currentTime >= segment.end - .12) playSegment(activeIndex + 1);
+      }, 160);
+    };
+
+    window.onYouTubeIframeAPIReady = () => {
+      player = new window.YT.Player('contest-highlight-player', {
+        events: {
+          onReady: () => {
+            player.mute();
+            playSegment(0);
+            beginTracking();
+          },
+          onStateChange: (event) => {
+            if (event.data === window.YT.PlayerState.ENDED) playSegment(activeIndex + 1);
+          }
+        }
+      });
+    };
+
+    buttons.forEach((button) => button.addEventListener('click', () => playSegment(Number(button.dataset.contestSegment))));
+
+    if ('IntersectionObserver' in window) {
+      const contestObserver = new IntersectionObserver(([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (!player?.playVideo) return;
+        if (isVisible) player.playVideo();
+        else player.pauseVideo();
+      }, { threshold: .35 });
+      contestObserver.observe(contestReel);
+    } else {
+      isVisible = true;
+    }
+
+    const youtubeApi = document.createElement('script');
+    youtubeApi.src = 'https://www.youtube.com/iframe_api';
+    youtubeApi.async = true;
+    document.head.appendChild(youtubeApi);
+  }
 })();
