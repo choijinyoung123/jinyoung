@@ -263,18 +263,18 @@ main { overflow: hidden; }
   gap: 24px;
   margin-bottom: 14px;
 }
-.contribution-heading > span { color: var(--muted); font-size: 9px; font-weight: 600; letter-spacing: .14em; }
-.contribution-heading h3 { margin: 0; font-size: 15px; font-weight: 500; letter-spacing: -.02em; }
+.contribution-heading > span { color: #c9c9c4; font-size: 13px; font-weight: 600; letter-spacing: .14em; }
+.contribution-heading h3 { margin: 0; font-size: 24px; font-weight: 700; letter-spacing: -.03em; }
 .contribution-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
 .contribution-list li { border-bottom: 1px solid var(--line); }
 .contribution-list button {
   width: 100%;
   display: grid;
-  grid-template-columns: 36px 1fr;
-  gap: 16px;
+  grid-template-columns: 48px 1fr;
+  gap: 22px;
   align-items: center;
-  padding: 15px 0;
-  color: var(--muted);
+  padding: 24px 0;
+  color: #c9c9c4;
   background: transparent;
   border: 0;
   text-align: left;
@@ -282,10 +282,10 @@ main { overflow: hidden; }
   transition: color .2s ease, padding-left .2s ease;
 }
 .contribution-list button:hover, .contribution-list button:focus-visible, .contribution-list li.is-active button { color: var(--text); padding-left: 7px; }
-.contribution-number { color: var(--accent); font-size: 10px; font-weight: 600; letter-spacing: .1em; }
+.contribution-number { color: var(--accent); font-size: 14px; font-weight: 700; letter-spacing: .1em; }
 .contribution-list button > span:last-child { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; }
-.contribution-list strong { font-size: 13px; font-weight: 500; }
-.contribution-list small { color: inherit; font-size: 9px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.contribution-list strong { font-size: 20px; font-weight: 600; }
+.contribution-list small { color: inherit; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
 .contest-full {
   grid-column: 1 / -1;
   order: 3;
