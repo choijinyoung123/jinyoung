@@ -114,7 +114,7 @@ main { overflow: hidden; }
   margin-bottom: 38px;
 }
 .project-heading .project-index { grid-column: 1 / -1; }
-.project-heading h1 { margin: 0; }
+.project-heading h1, .project-heading h2 { margin: 0; }
 .project-heading .project-lead { margin: 0 0 8px; }
 .project-index, .eyebrow {
   margin: 0 0 18px;

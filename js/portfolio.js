@@ -95,7 +95,7 @@
     const segments = [
       { start: 15, end: 41, time: '00:15 — 00:41', role: 'Motion Design' },
       { start: 65, end: 73, time: '01:05 — 01:13', role: 'Motion Design' },
-      { start: 74, end: 88, time: '01:14 — 01:28', role: 'Scene Design' },
+      { start: 74, end: 88, time: '01:14 — 01:28', role: 'Background & Character Design' },
       { start: 120, end: 136, time: '02:00 — 02:16', role: 'Motion Design' }
     ];
     const buttons = [...document.querySelectorAll('[data-contest-segment]')];
