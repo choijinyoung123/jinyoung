@@ -231,8 +231,8 @@ main { overflow: hidden; }
   gap: 10px;
 }
 .project-meta .tool-icons img {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
 }
 .project-copy { align-self: center; }
