@@ -225,6 +225,16 @@ main { overflow: hidden; }
   text-transform: uppercase;
 }
 .project-meta dd { margin: 0; font-size: 13px; line-height: 1.5; }
+.project-meta .tool-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.project-meta .tool-icons img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
 .project-copy { align-self: center; }
 .project-meta--stacked div { grid-template-columns: 62px 1fr; }
 
