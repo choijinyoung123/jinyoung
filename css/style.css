@@ -132,8 +132,12 @@ main { overflow: hidden; }
 .project h1 { font-size: clamp(64px, 9vw, 150px); }
 .project h2 { margin: 0 0 28px; font-size: clamp(42px, 5vw, 80px); }
 .project .contest-title {
-  font-size: clamp(25px, 3vw, 44px);
+  font-size: clamp(34px, 3.8vw, 58px);
   letter-spacing: -.045em;
+  white-space: nowrap;
+}
+.project .wedding-title {
+  font-size: clamp(36px, 4.1vw, 64px);
   white-space: nowrap;
 }
 .project-lead {
@@ -253,7 +257,7 @@ main { overflow: hidden; }
   grid-template-columns: minmax(0, 1.08fr) minmax(340px, .92fr);
   align-items: start;
 }
-.project--contest .project-copy { position: sticky; top: 108px; }
+.project--contest .project-copy { position: sticky; top: 108px; align-self: start; }
 .contest-reel { min-width: 0; order: 1; }
 .contest-reel-head {
   display: flex;
@@ -348,17 +352,23 @@ main { overflow: hidden; }
 .capability-list { border-top: 1px solid var(--line); }
 .capability-list article {
   display: grid;
-  grid-template-columns: 64px minmax(210px, .7fr) minmax(320px, 1fr);
+  grid-template-columns: 64px minmax(260px, .7fr) minmax(320px, 1fr);
   gap: 24px;
-  align-items: baseline;
+  align-items: center;
   padding: 28px 0;
   border-bottom: 1px solid var(--line);
 }
-.capability-list span { color: var(--accent); font-size: 11px; letter-spacing: .12em; }
+.capability-list article > span { color: var(--accent); font-size: 11px; letter-spacing: .12em; }
 .capability-list h3 { margin: 0; font-size: clamp(24px, 2.5vw, 38px); font-weight: 500; letter-spacing: -.035em; }
-.capability-list .capability-tool-icon { display: flex; align-items: center; }
+.capability-list .capability-tool-icon { display: flex; align-items: center; gap: 16px; }
 .capability-tool-icon img { width: 48px; height: 48px; object-fit: contain; }
-.capability-list p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.75; }
+.capability-list .capability-tool-icon .tool-label {
+  color: var(--text);
+  font-size: clamp(22px, 2vw, 30px);
+  letter-spacing: -.03em;
+  white-space: nowrap;
+}
+.capability-list p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.75; text-align: center; }
 .shorts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 2vw, 32px); }
 .short-card { margin: 0; }
 .short-video { aspect-ratio: 9 / 16; overflow: hidden; background: var(--surface); border: 1px solid var(--line); }
